@@ -8,25 +8,22 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://particles.vercel.app'),
   title: "Next.js PWA with Immersive 3D Designs",
-  description:
-    "Experience a cutting-edge Progressive Web App built with Next.js, featuring immersive 3D elements powered by Spline. Enjoy seamless interactivity and modern web development practices for an enhanced user experience.",
-  keywords:
-    "Next.js, PWA, Progressive Web App, Spline, 3D graphics, web development, interactive design, immersive experiences, UI/UX, responsive design, modern web apps",
+  description: "Experience a cutting-edge Progressive Web App built with Next.js...",
+  keywords: "Next.js, PWA, Progressive Web App, Spline, 3D graphics, web development...",
   authors: [{ name: "Vergil1000", url: "https://github.com/Vergil1000x" }],
   creator: "Vergil1000",
-  themeColor: "#000000",
   applicationName: "Next.js PWA with 3D Elements",
   robots: "index, follow",
   openGraph: {
     title: "Next.js PWA with Immersive 3D Designs",
-    description:
-      "Explore a Progressive Web App built with Next.js, featuring stunning 3D designs powered by Spline for an engaging user experience.",
+    description: "Explore a Progressive Web App built with Next.js...",
     url: "https://particles.vercel.app",
     siteName: "Next.js 3D PWA",
     images: [
       {
-        url: "/og-image.png", // Add your Open Graph image here
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Next.js PWA with Immersive 3D Designs",
@@ -40,8 +37,7 @@ export const metadata: Metadata = {
     site: "@yVergil1000x",
     creator: "@yVergil1000x",
     title: "Next.js PWA with Immersive 3D Designs",
-    description:
-      "Check out this Progressive Web App built with Next.js and powered by Spline, offering an interactive and visually stunning user experience.",
+    description: "Check out this Progressive Web App built with Next.js...",
     images: ["/og-image.png"],
   },
   manifest: "/manifest.json",
@@ -58,6 +54,7 @@ export const metadata: Metadata = {
     },
   ],
 };
+
 
 export default function RootLayout({
   children,
