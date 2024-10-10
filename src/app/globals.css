@@ -2,25 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
+  .glow {
+    text-shadow: 0 0 0px rgba(255, 255, 255, 0.6),
+      0 0 33px rgba(255, 255, 255, 0.6),
+      0 0 66px rgba(255, 255, 255, 0.6),
+      0 0 99px rgba(255, 255, 255, 0.6);
+  }
+
   .text-balance {
     text-wrap: balance;
   }

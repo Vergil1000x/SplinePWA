@@ -1,101 +1,56 @@
-import Image from "next/image";
+"use client";
+import Spline from "@splinetool/react-spline";
+import { useEffect } from "react";
+import InstallPrompt from "./components/InstallPrompt";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then(() => console.log("Service Worker Registered"))
+        .catch((error) =>
+          console.error("Service Worker Registration Failed:", error)
+        );
+    }
+  }, []);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+  return (
+    <div className="grow relative flex justify-center items-center w-full h-full bg-black tracking-widest">
+      <div className="absolute top-0 left-0 z-[2] text-white text-xs p-3 flex flex-col justify-start items-start">
+        <div className="">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="https://github.com/"
+            className="text-sm hover:underline transition-all pl-0 pr-3 hover:pl-3 hover:pr-3"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+            Check out the code &rarr;
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="">
+          Original 3D by -{" "}
+          <a
+            href="https://app.spline.design/community/file/3ff7b617-2fe9-46c7-8e06-b6d7c382f4db"
+            className="text-sm hover:underline transition-all"
+          >
+            auroregmbt
+          </a>
+        </div>
+        <div className="">
+          Blog by -{" "}
+          <a
+            href="https://dev.to/nyctonio/next-js-3d-elements-with-spline-3m84"
+            className="text-sm hover:underline transition-all"
+          >
+            nyctonio
+          </a>
+        </div>
+      </div>
+      <h1 className="text-gray-300 glow md:text-8xl sm:text-6xl text-4xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 tracking-widest">
+        Particles
+      </h1>
+      <Spline scene="https://prod.spline.design/qoQUXQY5VLNwE11p/scene.splinecode" />
+      <div className="absolute bottom-0 right-0 z-[1] h-14 w-40 bg-black text-white" />
+      <InstallPrompt />
     </div>
   );
 }
