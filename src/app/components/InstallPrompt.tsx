@@ -1,10 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
 
+// Define BeforeInstallPromptEvent interface
+interface BeforeInstallPromptEvent extends Event {
+  prompt: () => void;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+}
+
 export default function InstallPrompt() {
   const [isIOS, setIsIOS] = useState(false);
   const [isStandalone, setIsStandalone] = useState(false);
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
 
   useEffect(() => {
     const userAgent = navigator.userAgent;
@@ -14,16 +20,13 @@ export default function InstallPrompt() {
     // Listen for the beforeinstallprompt event and store the event
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault(); // Prevent the automatic prompt
-      setDeferredPrompt(e as any); // Store the event for manual prompt
+      setDeferredPrompt(e as BeforeInstallPromptEvent); // Store the event for manual prompt
     };
 
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
     return () => {
-      window.removeEventListener(
-        "beforeinstallprompt",
-        handleBeforeInstallPrompt
-      );
+      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
     };
   }, []);
 
