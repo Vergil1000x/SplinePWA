@@ -20,7 +20,7 @@ export default function Home() {
       <div className="absolute top-0 left-0 z-[2] text-white text-xs p-3 flex flex-col justify-start items-start">
         <div className="">
           <a
-            href="https://github.com/"
+            href="https://github.com/Vergil1000x/SplinePWA"
             className="text-sm hover:underline transition-all pl-0 pr-3 hover:pl-3 hover:pr-3"
           >
             Check out the code &rarr;
