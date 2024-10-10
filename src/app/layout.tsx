@@ -8,10 +8,12 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://particles.vercel.app'),
+  metadataBase: new URL("https://particles.vercel.app"),
   title: "Next.js PWA with Immersive 3D Designs",
-  description: "Experience a cutting-edge Progressive Web App built with Next.js...",
-  keywords: "Next.js, PWA, Progressive Web App, Spline, 3D graphics, web development...",
+  description:
+    "Experience a cutting-edge Progressive Web App built with Next.js...",
+  keywords:
+    "Next.js, PWA, Progressive Web App, Spline, 3D graphics, web development...",
   authors: [{ name: "Vergil1000", url: "https://github.com/Vergil1000x" }],
   creator: "Vergil1000",
   applicationName: "Next.js PWA with 3D Elements",
@@ -54,7 +56,6 @@ export const metadata: Metadata = {
     },
   ],
 };
-
 
 export default function RootLayout({
   children,

@@ -9,6 +9,10 @@ export default function InstallPrompt() {
     const userAgent = navigator.userAgent;
     setIsIOS(/iPad|iPhone|iPod/.test(userAgent));
     setIsStandalone(window.matchMedia("(display-mode: standalone)").matches);
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault(); // Prevents the automatic prompt
+    });
   }, []);
 
   if (isStandalone) return null;
